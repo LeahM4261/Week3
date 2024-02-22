@@ -1,0 +1,7 @@
+Both arrays and ArrayLists are used to store and manipulate collections of elements. However, they have some key differences in terms of functionality and usage.
+
+
+Arrays are neatly organized, fixed-size storage units where you can store similar items (i.e., String or Int). In starting the array you determine the size you would like it. The items are then numbered manually in the space they will occupy which is the index. You access these items directly by specifying their position, using indices (e.g., array[index]). Once you set the size of the array, it stays that way. If you need a different size, you have to build a new array and transfer everything over. Arrays provide an ordered arrangement of data in the computer's memory.
+
+
+On the other hand, ArrayLists are dynamic containers that can adjust their size automatically. They are part of Java’s Collections Framework. When creating the ArrayList unlike they array, you do not need to specify the size or assign their position as the position is determined in the order entered. To find or modify items, you employ specific methods, such as reaching at a specified spot (get(index) or set(index, element)). Unlike arrays, these containers don't have a fixed size from the start – they adapt as you add or remove items. ArrayLists are best when handling diverse types of items (i.e., String and Int.), and they are great at managing memory efficiently within the computer.
