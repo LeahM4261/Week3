@@ -45,8 +45,14 @@ public class WordCount {
 		String userInput = scanner.nextLine();
 
 		int wordCountUserInput = countWords(userInput);
+		
+		int spacePosUserInput = nextSpacePosition(userInput, 0);
+		
+		int nonSpacePosUserInput = nextNonSpacePosition(userInput, 0);
 
 		System.out.println("Number of words in user input: " + wordCountUserInput);
+		System.out.println("Next space position in user input: " + spacePosUserInput);
+		System.out.println("Next non-blank space position in user input: " + nonSpacePosUserInput);
 
 		scanner.close();
     }
