@@ -43,44 +43,65 @@ public class ArrayOperations {
             return;
         }
         
-        int smallestIndex = 0;
-        int largestIndex = 0;
-        
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[smallestIndex]) {
-                smallestIndex = i;
-            } else if (arr[i] > arr[largestIndex]) {
-                largestIndex = i;
-            }
-        }
-        
-        int temp = arr[smallestIndex];
-        arr[smallestIndex] = arr[largestIndex];
-        arr[largestIndex] = temp;
+		int smallestIndex = 0;
+		int largestIndex = 0;
+
+		for (int i = 1; i < arr.length; i++) {
+			if (arr[i] < arr[smallestIndex]) {
+				smallestIndex = i;
+			} else if (arr[i] > arr[largestIndex]) {
+				largestIndex = i;
+			}
+		}
+
+		// Swap the positions of the smallest and largest numbers
+		int temp = arr[smallestIndex];
+		arr[smallestIndex] = arr[largestIndex];
+		arr[largestIndex] = temp;
     }
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the number of elements in the array: ");
+
+        System.out.println("\nThis program allows you to input an array and determine its size.");
+        System.out.println("It will then: ");
+        System.out.println("- Swap its largest and smallest numbers.");
+        System.out.println("- Calculate the sum.");
+        System.out.println("- Remove the largest number in the array then calculate the new sum without the largest number.");
+        System.out.println("- Print out a new array without the largest number");
+        System.out.print("\nEnter the number of elements in the array: ");
         int n = scanner.nextInt();
         
         int[] array = new int[n];
-        
-        System.out.println("Enter the elements of the array:");
+
+        System.out.println("\nEnter the elements of the array:");
         
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
         }
         
-        System.out.println("Original Array: " + Arrays.toString(array));
+        System.out.println("\nOriginal Array: " + Arrays.toString(array));
         
+     // Swap the positions of the largest and smallest numbers in the array
+        swapLargestSmallest(array);
+        System.out.println("Array after swapping largest and smallest numbers: " + Arrays.toString(array));
+        
+        // Calculate the sum of all elements in the modified array
+        int sumAfterSwap = 0;
+        
+        for (int num : array) {
+            sumAfterSwap += num;
+        }
+        
+        System.out.println("Sum of array after swapping: " + sumAfterSwap);
+        
+        // Calculate the sum of all elements except the largest one
         int sumWithoutLargest = sumWithoutLargest(array);
         System.out.println("Sum without largest element: " + sumWithoutLargest);
         
-        System.out.println("Array after removing largest element: " + Arrays.toString(newArray));
-        
-        swapLargestSmallest(array);
-        System.out.println("Array after swapLargestSmallest: " + Arrays.toString(array));
+		// Create a new array after removing the largest element
+		int[] newArray = Arrays.copyOf(array, array.length - 1);
+
+		System.out.println("Array without largest element: " + Arrays.toString(newArray));
     }
 }
